@@ -70,7 +70,7 @@ namespace EntertainmentAPI.Controllers
       {
         try
         {
-          Movie movie = new Movie() { Name = addMovieDTO.MovieName, ProducerId = addMovieDTO.ProducerId,DOR=addMovieDTO.DOR, MovieActors = new List<MovieActor>(), Producer=new Producer() { ProducerId = addMovieDTO.ProducerId ,Name= addMovieDTO.ProducerName }};
+          Movie movie = new Movie() { Name = addMovieDTO.MovieName, ProducerId = addMovieDTO.ProducerId,DOR=addMovieDTO.DOR, MovieActors = new List<MovieActor>(), Producer=new Producer() { Name= addMovieDTO.ProducerName }};
           addMovieDTO.lstActors.ForEach(x => movie.MovieActors.Add(new MovieActor() { ActorId = x.ActorId }));
           _entities.Movies.Add(movie);
           int a = _entities.SaveChanges(true);
